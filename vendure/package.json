@@ -1,0 +1,31 @@
+{
+  "name": "vendure-adyen-plugin-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:server": "ts-node ./src/index.ts",
+    "dev:worker": "ts-node ./src/index-worker.ts",
+    "dev": "concurrently yarn:dev:*",
+    "build": "tsc",
+    "start:server": "node ./dist/index.js",
+    "start:worker": "node ./dist/index-worker.js",
+    "start": "concurrently yarn:start:*",
+    "migration:generate": "ts-node migration generate",
+    "migration:run": "ts-node migration run",
+    "migration:revert": "ts-node migration revert"
+  },
+  "dependencies": {
+    "@mirahi/vendure-adyen-dropin-plugin": "^0.0.4",
+    "@vendure/admin-ui-plugin": "1.9.6",
+    "@vendure/asset-server-plugin": "1.9.6",
+    "@vendure/core": "1.9.6",
+    "@vendure/email-plugin": "1.9.6",
+    "better-sqlite3": "8.3.0",
+    "dotenv": "16.0.3",
+    "typescript": "4.3.5"
+  },
+  "devDependencies": {
+    "concurrently": "8.0.1",
+    "ts-node": "10.9.1"
+  }
+}

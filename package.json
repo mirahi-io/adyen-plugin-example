@@ -1,0 +1,9 @@
+{
+  "name": "adyen-plugin-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "storefront": "cd storefront; yarn dev",
+    "vendure": "cd vendure; yarn dev"
+  }
+}
