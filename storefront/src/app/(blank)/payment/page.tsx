@@ -1,9 +1,8 @@
 "use client";
-import AdyenCheckout from "@adyen/adyen-web";
-import { CoreOptions } from "@adyen/adyen-web/dist/types/core/types";
-import "@adyen/adyen-web/dist/adyen.css";
-import { notFound } from "next/navigation";
 import { useEffect } from "react";
+import AdyenCheckout from "@adyen/adyen-web";
+import { notFound } from "next/navigation";
+import type { CoreOptions } from "@adyen/adyen-web/dist/types/core/types";
 
 type PaymentPageProps = { searchParams: { [key: string]: string | string[] | undefined } };
 
@@ -21,7 +20,8 @@ export function PaymentPage({ searchParams }: PaymentPageProps) {
       id, // Unique identifier for the payment session.
       sessionData, // The payment session data.
     },
-    // Any payment method specific configuration. Find the configuration specific to each payment method:  https://docs.adyen.com/payment-methods
+    // Any payment method specific configuration.
+    // Find the configuration specific to each payment method:  https://docs.adyen.com/payment-methods
     paymentMethodsConfiguration: {
       card: {
         hasHolderName: true,
@@ -35,14 +35,7 @@ export function PaymentPage({ searchParams }: PaymentPageProps) {
         hasCVC: true,
         // billingAddressRequired: true,
       },
-      // onPaymentCompleted: (result, component) => {
-      //   console.info(result, component);
-      // },
-      // onError: (error, component) => {
-      //   console.error(error.name, error.message, error.stack, component);
-      // },
     },
-    countryCode: "BE",
   } as const;
   useEffect(() => {
     (async () => {

@@ -1,3 +1,5 @@
+import "@adyen/adyen-web/dist/adyen.css";
+
 export const metadata = {
   title: "Payment",
 };

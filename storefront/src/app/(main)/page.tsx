@@ -35,7 +35,6 @@ export default function Home() {
         }
       `),
   });
-  console.log("🚀 ~ file: page.tsx:38 ~ Home ~ product:", product);
 
   const { mutate: addLaptopToCart, isLoading: addToCardIsLoading } = useMutation({
     mutationFn: () =>
@@ -95,24 +94,7 @@ export default function Home() {
     },
   });
 
-  const { data: cart, isLoading: cartIsLoading } = useQuery<{
-    activeOrder: {
-      lines: {
-        id: string;
-        productVariant: {
-          name: string;
-          currencyCode: string;
-        };
-        unitPrice: number;
-        quantity: number;
-      }[];
-      total: number;
-      currencyCode: string;
-      customer: {
-        __typename: string;
-      };
-    };
-  }>({
+  const { data: cart, isLoading: cartIsLoading } = useQuery<ActiveOrderData>({
     queryKey: ["cart"],
     queryFn: () =>
       graphQLClient.request(
@@ -154,11 +136,11 @@ export default function Home() {
         {product ? (
           <div className="flex flex-col items-center gap-4 m-8">
             <h1 className="text-4xl font-bold">{product.product?.name}</h1>
-            {product.product.assets?.at(0)?.source ? (
-              <Image src={product.product.assets[0].source} alt="" width={200} height={200} />
+            {product.product?.assets?.at(0)?.source ? (
+              <Image src={product.product?.assets[0].source} alt="" width={200} height={200} />
             ) : null}
-            <p className="text-2xl font-bold">{`${product.product.variants[0].price / 100} ${
-              product.product.variants[0].currencyCode
+            <p className="text-2xl font-bold">{`${product.product?.variants[0].price / 100} ${
+              product.product?.variants[0].currencyCode
             }`}</p>
             <button
               className={btnClass}
@@ -220,5 +202,24 @@ type ProductData = {
     assets: {
       source: string;
     }[];
+  };
+};
+
+type ActiveOrderData = {
+  activeOrder: {
+    lines: {
+      id: string;
+      productVariant: {
+        name: string;
+        currencyCode: string;
+      };
+      unitPrice: number;
+      quantity: number;
+    }[];
+    total: number;
+    currencyCode: string;
+    customer: {
+      __typename: string;
+    };
   };
 };

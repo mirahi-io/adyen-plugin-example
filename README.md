@@ -35,15 +35,17 @@ The server will run on port 3000:
 yarn vendure
 ```
 
-Add a new Payment method in the Vendure admin UI, and select the Adyen payment method.
-Then add your Adyen API key and the merchant account.
+Modify the Adyen Payment method in the Vendure admin UI by adding your Adyen API key.
+Also, change your Channel token to have it match your Adyen merchant account name.
 
 ## Running the storefront
 
-The storefront will run on port 4000:
+The storefront will run on port 4200:
 
 ```bash
 yarn storefront
 ```
 
 WARNING: Use the storefront in Incognito mode, otherwise the session cookie from the Vendure admin UI will conflict.
+
+You can make now a simple order for a wireless mouse!
