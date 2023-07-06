@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@mirahi/vendure-adyen-dropin-plugin": "^0.0.4",
-    "@vendure/admin-ui-plugin": "1.9.6",
+    "@vendure/admin-ui-plugin": "2.0.3",
     "@vendure/asset-server-plugin": "1.9.6",
     "@vendure/core": "1.9.6",
     "@vendure/email-plugin": "1.9.6",
