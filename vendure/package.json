@@ -18,7 +18,7 @@
     "@mirahi/vendure-adyen-dropin-plugin": "^0.0.4",
     "@vendure/admin-ui-plugin": "1.9.6",
     "@vendure/asset-server-plugin": "1.9.6",
-    "@vendure/core": "1.9.6",
+    "@vendure/core": "2.0.3",
     "@vendure/email-plugin": "1.9.6",
     "better-sqlite3": "8.3.0",
     "dotenv": "16.0.3",
